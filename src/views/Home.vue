@@ -42,10 +42,8 @@ export default Vue.extend({
         totalPacks += filling.counter;
       });
       totalCost = totalPacks * 7;
-      if (totalCost % 3 == 0) {
-        totalCost = totalCost - (totalPacks / 3);
-      }
-      return totalCost;
+      totalCost = totalCost - totalPacks / 3;
+      return Math.ceil(totalCost);
     },
   },
   methods: {
