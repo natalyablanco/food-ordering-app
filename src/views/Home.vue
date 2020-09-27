@@ -8,7 +8,7 @@
           <v-btn icon @click="decrease(filling)"
             ><v-icon>mdi-minus</v-icon></v-btn
           >
-          <v-btn icon @click="filling.counter++"
+          <v-btn icon @click="increase(filling)"
             ><v-icon>mdi-plus</v-icon></v-btn
           >
         </v-card-actions>
@@ -19,6 +19,7 @@
         <v-btn
           class="mx-auto mb-6"
           color="success"
+          :disabled="isDisabled"
           @click.prevent="openConfirmation()"
           >Submit</v-btn
         >
@@ -51,12 +52,21 @@ export default Vue.extend({
       totalCost = totalCost - totalPacks / 3;
       return Math.ceil(totalCost);
     },
+    isDisabled(): boolean {
+      return this.order.packets < 3;
+    },
   },
   methods: {
     decrease(filling: { counter: number }) {
-      if (filling.counter === 0) {
-      } else {
+      if (filling.counter > 0) {
         filling.counter--;
+        this.order.packets--;
+      }
+    },
+    increase(filling: { counter: number }) {
+      if (filling.counter < 100) {
+        filling.counter++;
+        this.order.packets++;
       }
     },
     openConfirmation() {
@@ -103,6 +113,10 @@ export default Vue.extend({
       confirmData: {
         dialog: false,
         summary: {},
+      },
+      order: {
+        minOrder: false,
+        packets: 0,
       },
     };
   },
