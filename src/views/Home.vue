@@ -76,7 +76,6 @@ export default Vue.extend({
     openConfirmation() {
       this.confirmData.dialog = true;
       this.confirmData.summary = this.fillings.filter((x) => x.counter != 0);
-      console.log(this.confirmData.summary);
     },
     closeDialog() {
       this.confirmData.dialog = false;
