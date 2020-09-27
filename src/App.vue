@@ -5,7 +5,7 @@
 
       <v-app-bar app>
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>El sabor del cucharon</v-toolbar-title>
+        <v-toolbar-title>A la Paila</v-toolbar-title>
       </v-app-bar>
 
       <!-- Sizes your content based upon application components -->
