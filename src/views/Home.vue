@@ -13,27 +13,33 @@
           >
         </v-card-actions>
       </div>
-      <v-card-text>
-        <v-text-field label="Name"></v-text-field>
-        <v-text-field label="Street name and number"></v-text-field>
-        <v-text-field label="Post code"></v-text-field>
-        <v-text-field label="Email"></v-text-field>
-        <v-text-field label="Phone number"></v-text-field>
-        <p class="text-h5 mt-2">Total cost: ${{ price }}</p>
-      </v-card-text>
+      <CustomerForm :customer="customer" />
+      <p class="text-h5 mt-2">Total cost: ${{ price }}</p>
       <v-card-actions>
-        <v-btn class="mx-auto mb-6" color="success">Submit</v-btn>
+        <v-btn
+          class="mx-auto mb-6"
+          color="success"
+          @click.prevent="openConfirmation()"
+          >Submit</v-btn
+        >
       </v-card-actions>
     </v-card>
+    <ConfirmationDialog
+      :dialog="confirmData.dialog"
+      :summary="confirmData.summary"
+      @close-dialog="closeDialog"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import ConfirmationDialog from "@/components/ConfirmationDialog.vue";
+import CustomerForm from "@/components/CustomerForm.vue";
 
 export default Vue.extend({
   name: "Home",
-  components: {},
+  components: { ConfirmationDialog, CustomerForm },
   computed: {
     price() {
       let totalPacks: number = 0;
@@ -53,10 +59,25 @@ export default Vue.extend({
         filling.counter--;
       }
     },
+    openConfirmation() {
+      this.confirmData.dialog = true;
+      this.confirmData.summary = this.customer;
+    },
+    closeDialog() {
+      this.confirmData.dialog = false;
+    },
   },
   data() {
     return {
-      counter: 0,
+      customer: {
+        name: "",
+        email: "",
+        number: "",
+        address: {
+          street_number: "",
+          postcode: "",
+        },
+      },
       fillings: [
         {
           name: "Carne Mechada",
@@ -74,7 +95,15 @@ export default Vue.extend({
           name: "Queso",
           counter: 0,
         },
+        {
+          name: "Cazón",
+          counter: 0,
+        },
       ],
+      confirmData: {
+        dialog: false,
+        summary: {},
+      },
     };
   },
 });
