@@ -53,25 +53,28 @@ export default Vue.extend({
       return Math.ceil(totalCost);
     },
     isDisabled(): boolean {
-      return this.order.packets < 3;
+      return (
+        this.fillings
+          .filter((x) => x.counter != 0)
+          .map((x) => x.counter)
+          .reduce((a, b) => a + b, 0) < 3
+      );
     },
   },
   methods: {
     decrease(filling: { counter: number }) {
       if (filling.counter > 0) {
         filling.counter--;
-        this.order.packets--;
       }
     },
     increase(filling: { counter: number }) {
       if (filling.counter < 100) {
         filling.counter++;
-        this.order.packets++;
       }
     },
     openConfirmation() {
       this.confirmData.dialog = true;
-      this.confirmData.summary = this.customer;
+      this.confirmData.summary = this.fillings.filter((x) => x.counter != 0);
     },
     closeDialog() {
       this.confirmData.dialog = false;
@@ -113,10 +116,6 @@ export default Vue.extend({
       confirmData: {
         dialog: false,
         summary: {},
-      },
-      order: {
-        minOrder: false,
-        packets: 0,
       },
     };
   },
