@@ -27,6 +27,7 @@
     </v-card>
     <ConfirmationDialog
       :dialog="confirmData.dialog"
+      :customer="customer"
       :summary="confirmData.summary"
       @close-dialog="closeDialog"
     />
@@ -75,6 +76,7 @@ export default Vue.extend({
     openConfirmation() {
       this.confirmData.dialog = true;
       this.confirmData.summary = this.fillings.filter((x) => x.counter != 0);
+      console.log(this.confirmData.summary);
     },
     closeDialog() {
       this.confirmData.dialog = false;
