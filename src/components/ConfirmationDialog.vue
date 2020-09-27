@@ -2,7 +2,7 @@
   <v-dialog v-model="dialog" width="600">
     <v-card>
       <v-card-title>
-        Summary
+        {{ $t("summaryTitle") }}
       </v-card-title>
       <v-card-text> Dear {{ customer.name }}, this is your order:</v-card-text>
       <v-card-text class="mx-auto" max-width="600">
