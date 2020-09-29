@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <v-card class="mx-auto" max-width="600">
+    <v-card class="mx-auto mt-2" max-width="600" color="#FBE08A">
       <div class="d-flex" v-for="(filling, index) in fillings" :key="index">
         <v-card-text>{{ filling.name }}</v-card-text>
         <v-card-text>{{ filling.counter }} pack(s)</v-card-text>
@@ -14,7 +14,7 @@
         </v-card-actions>
       </div>
       <CustomerForm :customer="customer" />
-      <p class="text-h5 mt-2">Total cost: ${{ price }}</p>
+      <p class="text-h5 mt-2 pl-4">Total cost: ${{ price }}</p>
       <v-card-actions>
         <v-btn
           class="mx-auto mb-6"
