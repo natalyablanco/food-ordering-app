@@ -25,7 +25,7 @@
         <v-btn color="green darken-1" text @click="closeDialog">
           Cancel
         </v-btn>
-        <v-btn color="primary" text @click="closeDialog">
+        <v-btn color="primary" text @click="sendFoodOrder">
           Confirm
         </v-btn>
       </v-card-actions>
@@ -49,6 +49,25 @@ export default Vue.extend({
     closeDialog() {
       this.$emit("close-dialog");
     },
+    async sendFoodOrder(){
+      try {
+
+        let response = await fetch('https://www.google.com/url?q=https%3A%2F%2Fnorthamerica-northeast1-baby-alert-app.cloudfunctions.net%2Fsend-email', {
+          method: 'post',
+          mode: 'no-cors',
+          body:  JSON.stringify({foodOrder: "my post"})
+        })
+
+        if (response.ok) { // if HTTP-status is 200-299
+          // get the response body (the method explained below)
+          let json = await response.json();
+        } else {
+          alert("HTTP-Error: " + response.status);
+        }
+      } catch (error) {
+        
+      }
+    }
   },
 });
 </script>
