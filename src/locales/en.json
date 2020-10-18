@@ -14,5 +14,12 @@
     "summaryThirdLineMessage":
       "The delivery day and time will be confirm through the number: {number}",
     "confirmButtonLabel": "Confirm",
-    "cancelButtonLabel": "Cancel"
+    "cancelButtonLabel": "Cancel",
+    "errorNameRequired": "Name is required",
+    "errorAddressRequired": "Street is required",
+    "errorPostcodeRequired": "Postal code is required",
+    "errorEmailRequired": "Email is required",
+    "errorEmailInvalid": "E-mail must be valid",
+    "errorPhoneRequired": "Phone number is required",
+    "errorPhoneInvalid": "Phone number must be valid"
 }
