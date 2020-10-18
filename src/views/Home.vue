@@ -83,6 +83,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      
       customer: {
         name: "",
         email: "",
