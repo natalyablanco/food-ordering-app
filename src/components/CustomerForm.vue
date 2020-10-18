@@ -1,16 +1,16 @@
 <<template>
   <v-card-text>
-    <v-text-field v-model="customer.name" label="Name"></v-text-field>
+    <v-text-field v-model="customer.name" :label="$t('nameLabel')"></v-text-field>
     <v-text-field
       v-model="customer.address.street_number"
-      label="Street name and number"
+      :label="$t('addressStreetLabel')"
     ></v-text-field>
     <v-text-field
       v-model="customer.address.postcode"
-      label="Post code"
+      :label="$t('addressPostcodeLabel')"
     ></v-text-field>
-    <v-text-field v-model="customer.email" label="Email"></v-text-field>
-    <v-text-field v-model="customer.number" label="Phone number"></v-text-field>
+    <v-text-field v-model="customer.email" :label="$t('emailLabel')"></v-text-field>
+    <v-text-field v-model="customer.number" :label="$t('phoneNumberLabel')"></v-text-field>
   </v-card-text>
 </template>
 

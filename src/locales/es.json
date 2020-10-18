@@ -7,7 +7,7 @@
     "emailLabel": "Correo eletrónico",
     "phoneNumberLabel": "Número de teléfono",
     "submitButtonLabel": "Enviar pedido",
-    "totalCostLabel": "Total a pagar: ${0}",
+    "totalCostLabel": "Total a pagar: ${price}",
     "summaryFirstLineMessage":
       "Estimado/Estimada {name}, este es el resumen de tu pedido:",
     "summarySecondLineMessage":
