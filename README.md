@@ -1,4 +1,4 @@
-# sabor-del-cucharon
+# food ordering app
 
 ## Project setup
 ```
