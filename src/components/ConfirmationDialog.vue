@@ -51,16 +51,16 @@ export default Vue.extend({
     },
     async sendFoodOrder(){
       try {
-
-        let response = await fetch('https://www.google.com/url?q=https%3A%2F%2Fnorthamerica-northeast1-baby-alert-app.cloudfunctions.net%2Fsend-email', {
-          method: 'post',
-          mode: 'no-cors',
-          body:  JSON.stringify({foodOrder: "my post"})
+        let response = await fetch('https://northamerica-northeast1-baby-alert-app.cloudfunctions.net/send-email', {
+          method: 'POST',
+          mode: 'cors', 
+          cache: 'no-cache', 
+          credentials: 'omit', 
+          body:  JSON.stringify(this.summary)
         })
-
-        if (response.ok) { // if HTTP-status is 200-299
-          // get the response body (the method explained below)
-          let json = await response.json();
+        if (response.ok) {
+          this.closeDialog();
+          alert("your order has been placed");
         } else {
           alert("HTTP-Error: " + response.status);
         }

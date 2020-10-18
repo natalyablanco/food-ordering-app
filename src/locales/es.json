@@ -1,0 +1,19 @@
+{
+    "summaryTitle": "Resumen",
+    "packtLabel": "paquete(s)",
+    "nameLabel": "Nombre",
+    "addressStreetLabel": "Calle y número de casa",
+    "addressPostcodeLabel": "Código postal",
+    "emailLabel": "Correo eletrónico",
+    "phoneNumberLabel": "Número de teléfono",
+    "submitButtonLabel": "Enviar pedido",
+    "totalCostLabel": "Total a pagar: ${0}",
+    "summaryFirstLineMessage":
+      "Estimado/Estimada {name}, este es el resumen de tu pedido:",
+    "summarySecondLineMessage":
+      "La entrega se realizará a la siguiente dirección: {addressStreet}, {addressPostcode}",
+    "summaryThirdLineMessage":
+      "El día y la hora de entrega será confirmada al siguiente número: {number}",
+    "confirmButtonLabel": "Confirmar",
+    "cancelButtonLabel": "Cancelar"
+  }

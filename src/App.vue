@@ -5,7 +5,8 @@
 
       <v-app-bar app color="#f5bb00">
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>El sabor del cucharon</v-toolbar-title>
+        <v-toolbar-title>A la Paila</v-toolbar-title>
+        <LocaleChanger />
       </v-app-bar>
 
       <!-- Sizes your content based upon application components -->
@@ -26,11 +27,15 @@
 
 <script lang="ts">
 import Vue from "vue";
+import LocaleChanger from "./components/LocaleChanger.vue";
+
 
 export default Vue.extend({
   name: "App",
+    components: { LocaleChanger },
   data() {
     return {
+      langs: ['en','es'],
       drawer: false,
     };
   },

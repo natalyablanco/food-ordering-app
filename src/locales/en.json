@@ -1,0 +1,18 @@
+ {
+    "summaryTitle": "Summary",
+    "packtLabel": "pack(s)",
+    "nameLabel": "Name",
+    "addressStreetLabel": "Street and Number",
+    "addressPostcodeLabel": "Postcode",
+    "emailLabel": "Email",
+    "phoneNumberLabel": "Phone number",
+    "submitButtonLabel": "Submit order",
+    "totalCostLabel": "Total cost: ${0}",
+    "summaryFirstLineMessage": "Dear {name}, this is your order:",
+    "summarySecondLineMessage":
+      "To be deliver to the following address: {addressStreet}, {addressPostcode}",
+    "summaryThirdLineMessage":
+      "The delivery day and time will be confirm through the number: {number}",
+    "confirmButtonLabel": "Confirm",
+    "cancelButtonLabel": "Cancel"
+}
