@@ -1,21 +1,21 @@
 <<template>
 <v-form v-model="valid">
   <v-card-text>
-    <v-text-field required :rules="nameRules" v-model="customer.name" label="Name"></v-text-field>
+    <v-text-field required :rules="nameRules" v-model="customer.name" :label="$t('nameLabel')"></v-text-field>
     <v-text-field
       required
       :rules="streetRules"
       v-model="customer.address.street_number"
-      label="Street name and number"
+      :label="$t('addressStreetLabel')"
     ></v-text-field>
     <v-text-field
       required
       :rules="postcodeRules"
       v-model="customer.address.postcode"
-      label="Postal code"
+      :label="$t('addressPostcodeLabel')"
     ></v-text-field>
-    <v-text-field required :rules="emailRules" v-model="customer.email" label="Email"></v-text-field>
-    <v-text-field required :rules="phoneRules" v-model="customer.number" label="Phone number"></v-text-field>
+    <v-text-field required :rules="emailRules" v-model="customer.email" :label="$t('emailLabel')"></v-text-field>
+    <v-text-field required :rules="phoneRules" v-model="customer.number" :label="$t('phoneNumberLabel')"></v-text-field>
   </v-card-text>
 </v-form>
   

@@ -3,7 +3,7 @@
     <v-card class="mx-auto mt-2" max-width="600" color="#FBE08A">
       <div class="d-flex" v-for="(filling, index) in fillings" :key="index">
         <v-card-text>{{ filling.name }}</v-card-text>
-        <v-card-text>{{ filling.counter }} pack(s)</v-card-text>
+        <v-card-text>{{ filling.counter }} {{ $t("packtLabel") }}</v-card-text>
         <v-card-actions>
           <v-btn icon @click="decrease(filling)"
             ><v-icon>mdi-minus</v-icon></v-btn
@@ -14,14 +14,14 @@
         </v-card-actions>
       </div>
       <CustomerForm :customer="customer" />
-      <p class="text-h5 mt-2 pl-4">Total cost: ${{ price }}</p>
+      <p class="text-h5 mt-2 pl-4">{{ $t("totalCostLabel", {price: price}) }}</p>
       <v-card-actions>
         <v-btn
           class="mx-auto mb-6"
           color="success"
           :disabled="isDisabled"
           @click.prevent="openConfirmation()"
-          >Submit</v-btn
+          >{{ $t("submitButtonLabel") }}</v-btn
         >
       </v-card-actions>
     </v-card>

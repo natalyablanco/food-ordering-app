@@ -7,12 +7,19 @@
     "emailLabel": "Email",
     "phoneNumberLabel": "Phone number",
     "submitButtonLabel": "Submit order",
-    "totalCostLabel": "Total cost: ${0}",
+    "totalCostLabel": "Total cost: ${price}",
     "summaryFirstLineMessage": "Dear {name}, this is your order:",
     "summarySecondLineMessage":
       "To be deliver to the following address: {addressStreet}, {addressPostcode}",
     "summaryThirdLineMessage":
       "The delivery day and time will be confirm through the number: {number}",
     "confirmButtonLabel": "Confirm",
-    "cancelButtonLabel": "Cancel"
+    "cancelButtonLabel": "Cancel",
+    "errorNameRequired": "Name is required",
+    "errorAddressRequired": "Street is required",
+    "errorPostcodeRequired": "Postal code is required",
+    "errorEmailRequired": "Email is required",
+    "errorEmailInvalid": "E-mail must be valid",
+    "errorPhoneRequired": "Phone number is required",
+    "errorPhoneInvalid": "Phone number must be valid"
 }

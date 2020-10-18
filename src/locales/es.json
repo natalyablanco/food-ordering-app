@@ -7,7 +7,7 @@
     "emailLabel": "Correo eletrónico",
     "phoneNumberLabel": "Número de teléfono",
     "submitButtonLabel": "Enviar pedido",
-    "totalCostLabel": "Total a pagar: ${0}",
+    "totalCostLabel": "Total a pagar: ${price}",
     "summaryFirstLineMessage":
       "Estimado/Estimada {name}, este es el resumen de tu pedido:",
     "summarySecondLineMessage":
@@ -15,5 +15,12 @@
     "summaryThirdLineMessage":
       "El día y la hora de entrega será confirmada al siguiente número: {number}",
     "confirmButtonLabel": "Confirmar",
-    "cancelButtonLabel": "Cancelar"
+    "cancelButtonLabel": "Cancelar",
+    "errorNameRequired": "Nombre es obligatorio",
+    "errorAddressRequired": "Calle es obligatorio",
+    "errorPostcodeRequired": "Código postal es obligatorio",
+    "errorEmailRequired": "Correo electrónico es obligatorio",
+    "errorEmailInvalid": "El correo electrónico debe ser válido",
+    "errorPhoneRequired": "Teléfono es obligatorio",
+    "errorPhoneInvalid": "El Teléfono debe ser válido"
   }
