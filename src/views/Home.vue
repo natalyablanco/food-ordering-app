@@ -13,7 +13,7 @@
           >
         </v-card-actions>
       </div>
-      <CustomerForm :customer="customer" />
+      <CustomerForm :customer.sync="customer" />
       <p class="text-h5 mt-2 pl-4">{{ $t("totalCostLabel", {price: price}) }}</p>
       <v-card-actions>
         <v-btn

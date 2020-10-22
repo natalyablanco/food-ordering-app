@@ -1,59 +1,71 @@
 <<template>
 <v-form v-model="valid">
   <v-card-text>
-    <v-text-field required :rules="nameRules" v-model="customer.name" :label="$t('nameLabel')"></v-text-field>
+    <v-text-field required 
+      :rules="nameRules"
+      v-model="customer.name"
+      :label="$t('nameLabel')" 
+      @keyup="$emit('update:customer.name', customer.name)"
+      ></v-text-field>
     <v-text-field
       required
       :rules="streetRules"
       v-model="customer.address.street_number"
       :label="$t('addressStreetLabel')"
+      @keyup="$emit('update:customer.address.street_number', customer.address.street_number)"
     ></v-text-field>
     <v-text-field
       required
       :rules="postcodeRules"
       v-model="customer.address.postcode"
       :label="$t('addressPostcodeLabel')"
+      @keyup="$emit('update:customer.address.postcode', customer.address.postcode)"
     ></v-text-field>
-    <v-text-field required :rules="emailRules" v-model="customer.email" :label="$t('emailLabel')"></v-text-field>
-    <v-text-field required :rules="phoneRules" v-model="customer.number" :label="$t('phoneNumberLabel')"></v-text-field>
+    <v-text-field 
+      required 
+      :rules="emailRules" 
+      v-model="customer.email" 
+      :label="$t('emailLabel')"
+      @keyup="$emit('update:customer.email', customer.email)"
+      ></v-text-field>
+    <v-text-field 
+      required 
+      :rules="phoneRules" 
+      v-model="customer.number" 
+      :label="$t('phoneNumberLabel')"
+      @keyup="$emit('update:customer.number', customer.number)"
+      ></v-text-field>
   </v-card-text>
 </v-form>
   
 </template>
-
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
   name: "CustomerForm",
+  props: {
+    customer: {},
+  },
   data() {
     return {
       valid: false,
       nameRules: [
-        (v: string) => !!v || 'Name is required',
+        (v: string) => !!v || this.$t('errorNameRequired'),
       ],
       streetRules: [
-        (v: string) => !!v || 'Street is required',
+        (v: string) => !!v || this.$t('errorAddressRequired'),
       ],
       postcodeRules: [
-        (v: string) => !!v || 'Postal code is required',
+        (v: string) => !!v || this.$t('errorPostcodeRequired'),
       ],
       emailRules: [
-        (v: string) => !!v || 'Email is required',
-        (v: string) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
+        (v: string) => !!v || this.$t('errorEmailRequired'),
+        (v: string) => /.+@.+\..+/.test(v) || this.$t('errorEmailInvalid'),
       ],
       phoneRules: [
-        (v: string) => !!v || 'Phone number is required',
-        (v: string) => /^[0-9]+$/.test(v) || 'Phone number must be valid',
+        (v: string) => !!v || this.$t('errorPhoneRequired'),
+        (v: string) => /^[0-9]+$/.test(v) || this.$t('errorPhoneInvalid'),
       ],
-      customer: {
-        name: "",
-        email: "",
-        number: "",
-        address: {
-          street_number: "",
-          postcode: "",
-        },
-      },
     }
   },
 });
