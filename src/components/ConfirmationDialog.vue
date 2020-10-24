@@ -1,6 +1,6 @@
 <template>
-  <v-dialog v-model="dialog" width="600">
-    <v-card>
+  <v-dialog v-model="dialog" width="600" persistent>
+    <v-card v-if="confirmation">
       <v-card-title>
         {{ $t("summaryTitle") }}
       </v-card-title>
@@ -33,6 +33,23 @@
         </v-btn>
       </v-card-actions>
     </v-card>
+    <v-card v-else>
+      <v-card-title>
+        {{ $t("transactionTitle") }}
+      </v-card-title>
+      <v-card-text v-if="success">
+        {{ $t("transactionSuccess") }}
+      </v-card-text>
+      <v-card-text v-else>
+        {{ $t("transactionError") }}
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="primary" text @click="closeDialog" >
+          {{ $t("cancelButtonLabel") }}
+        </v-btn>
+      </v-card-actions>
+    </v-card>
   </v-dialog>
 </template>
 
@@ -43,7 +60,9 @@ export default Vue.extend({
   components: {},
   data() {
     return {
-      loading: false
+      loading: false,
+      confirmation: true,
+      success: false
     }
   },
   props: {
@@ -58,9 +77,18 @@ export default Vue.extend({
       this.loading = false;
       this.$emit("close-dialog");
     },
+    onSuccess(){
+      this.loading = false;
+      this.confirmation = false;
+      this.success = true;
+    },
+    onError(){
+      this.confirmation = false;
+      this.loading = false;
+    },
     async sendFoodOrder() {
       this.loading = true;
-      try {
+      /*try {
         let response = await fetch(
           "https://northamerica-northeast1-baby-alert-app.cloudfunctions.net/send-email",
           {
@@ -72,13 +100,14 @@ export default Vue.extend({
           }
         );
         if (response.ok) {
-          this.closeDialog();
+          this.onSuccess();
         } else {
           alert("HTTP-Error: " + response.status);
         }
       } catch (error) {
-        this.loading = false;
-      }
+        this.onError();
+      }*/
+      this.onSuccess();
     },
   },
 });

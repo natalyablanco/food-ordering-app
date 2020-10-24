@@ -30,6 +30,7 @@
       :customer="customer"
       :summary="confirmData.summary"
       @close-dialog="closeDialog"
+      ref="form"
     />
   </div>
 </template>
@@ -83,7 +84,6 @@ export default Vue.extend({
   },
   data() {
     return {
-      
       customer: {
         name: "",
         email: "",

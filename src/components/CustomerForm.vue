@@ -46,6 +46,14 @@ export default Vue.extend({
   props: {
     customer: {},
   },
+  methods: {
+    validateForm() {
+      (this.$refs.form as Vue & { validate: () => boolean }).validate();
+    },
+    reset() {
+      (this.$refs.form as Vue & { reset: () => boolean }).reset();
+    },
+  },
   data() {
     return {
       valid: false,
